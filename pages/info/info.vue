@@ -1,6 +1,5 @@
 <template>
 	<view class="content">
-		<page-head :title="title"></page-head>
 		<view class="title">{{title}}</view>
 		<view class="art-content">
 			<rich-text class="richText" :nodes="strings"></rich-text>
@@ -43,13 +42,19 @@
 </script>
 
 <style>
-.content{
-	padding: 10upx;width: 96%;flex-wrap: wrap;
+.content {
+	padding: 15px;
+	width: 100%;
+	box-sizing: border-box;
+	
 }
-.title{
-	line-height: 2em; font-weight: 700;font-size: 38upx;
+.title {
+	font-size: 18px;
+	text-align: center;
+	margin-bottom: 15px;
 }
-.art-content{
-	line-height: 2em;
+.art-content {
+	color: #666;
 }
+
 </style>
