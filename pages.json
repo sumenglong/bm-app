@@ -4,7 +4,7 @@
         {
             "path" : "pages/index/index",
             "style" : {
-                "navigationBarTitleText" : "主页",
+                "navigationBarTitleText" : "首页",
                "enablePullDownRefresh": true
             }
         },
@@ -86,16 +86,25 @@
 				 "enablePullDownRefresh" : true
 			}
         }
+        ,{
+            "path" : "pages/city/city",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
     "globalStyle" : {
         "navigationBarTextStyle" : "white",
         //"navigationBarTitleText" : "看图",
-        "navigationBarBackgroundColor" : "#FF80AB",
+        "navigationBarBackgroundColor" : "#1f89e2",
         "backgroundColor" : "#EFEFEF"
     },
     "tabBar" : {
         "color" : "#444444",
-        "selectedColor" : "#FF80AB",
+        "selectedColor" : "#1f89e2",
         "borderStyle" : "black",
         "backgroundColor" : "#ffffff",
         "list" : [
@@ -103,13 +112,13 @@
                 "pagePath" : "pages/index/index",
                 "iconPath" : "static/index-0.png",
                 "selectedIconPath" : "static/index-1.png",
-                "text" : "主页"
+                "text" : "首页"
             },
 			{
 			    "pagePath" : "pages/hot/hot",
 				"iconPath" : "static/hot-0.png",
 				"selectedIconPath" : "static/hot-1.png",
-				"text" : "推荐"
+				"text" : "发现"
 			},
             {
                 "pagePath" : "pages/center/center",
