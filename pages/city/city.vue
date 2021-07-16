@@ -39,24 +39,24 @@ export default {
                 }
             ],
             //显示的城市数据
-            // obtainCitys: [
-            //     {
-            //         id: 0,
-            //         title: '南京'
-            //     },
-            //     {
-            //         id: 1,
-            //         title: '北京'
-            //     },
-            //     {
-            //         id: 2,
-            //         title: '天津'
-            //     },
-            //     {
-            //         id: 3,
-            //         title: '东京'
-            //     }
-            // ]
+            obtainCitys: [
+                // {
+                //     id: 0,
+                //     title: '南京'
+                // },
+                // {
+                //     id: 1,
+                //     title: '北京'
+                // },
+                // {
+                //     id: 2,
+                //     title: '天津'
+                // },
+                // {
+                //     id: 3,
+                //     title: '东京'
+                // }
+            ]
         }
     },
     components: {
@@ -64,7 +64,7 @@ export default {
     },
     onLoad() {
         //动态更新数据
-        setTimeout(() => {
+        // setTimeout(() => {
             //修改需要构建索引参数的名称
             this.formatName = 'cityName'
             //修改当前城市
@@ -84,16 +84,16 @@ export default {
                 }
             ]
             //修改构建索引数据
-            this.obtainCitys = citys,
-            uni.showToast({
-                icon: 'none',
-                title: '更新数据成功',
+            this.obtainCitys = citys;
+            // uni.showToast({
+                // icon: 'none',
+                // title: '更新数据成功',
                 // #ifdef MP-WEIXIN
-                duration: 100,
+                // duration: 100,
                 // #endif
-                mask: true
-            })
-        }, 100)
+                // mask: true
+            // })
+        // }, 100)
     },
     methods: {
         cityClick(item) {

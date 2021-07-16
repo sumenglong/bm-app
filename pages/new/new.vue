@@ -54,5 +54,8 @@
 </script>
 
 <style>
-
+.uni-media-list-text-top {
+	height: 18px;
+	overflow: hidden;
+}
 </style>

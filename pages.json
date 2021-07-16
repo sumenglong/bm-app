@@ -110,20 +110,20 @@
         "list" : [
             {
                 "pagePath" : "pages/index/index",
-                "iconPath" : "static/index-0.png",
-                "selectedIconPath" : "static/index-1.png",
+                "iconPath" : "static/home2.png",
+                "selectedIconPath" : "static/home1.png",
                 "text" : "首页"
             },
 			{
 			    "pagePath" : "pages/hot/hot",
-				"iconPath" : "static/hot-0.png",
-				"selectedIconPath" : "static/hot-1.png",
+				"iconPath" : "static/find2.png",
+				"selectedIconPath" : "static/find1.png",
 				"text" : "发现"
 			},
             {
                 "pagePath" : "pages/center/center",
-                "iconPath" : "static/center-0.png",
-                "selectedIconPath" : "static/center-1.png",
+                "iconPath" : "static/my2.png",
+                "selectedIconPath" : "static/my1.png",
                 "text" : "我的"
             }
         ]
