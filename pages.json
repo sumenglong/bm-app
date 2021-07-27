@@ -25,35 +25,35 @@
 		{
 		    "path" : "pages/hot/hot",
 		    "style" : {
-		        "navigationBarTitleText" : "推荐",
+		        "navigationBarTitleText" : "发现",
 		        "enablePullDownRefresh" : true
 		    }
 		},
 		{
 			"path": "pages/detail/detail",
 			"style": {
-				"navigationBarTitleText": "详情",
-				"navigationBarBackgroundColor": "#000000",
-				"backgroundColor": "#000000",
-				"app-plus": {
-					"bounce": "none",
-					"titleNView": {
-						"buttons": [{
-							"type": "share"
-						}]
-					}
-				},
-				"h5": {
-					"titleNView": {
-						"buttons": [{
-								"type": "share"
-							},
-							{
-								"type": "favorite"
-							}
-						]
-					}
-				}
+				"navigationBarTitleText": "详情"
+				// "navigationBarBackgroundColor": "#000000",
+				// "backgroundColor": "#000000",
+				// "app-plus": {
+				// 	"bounce": "none",
+				// 	"titleNView": {
+				// 		"buttons": [{
+				// 			"type": "share"
+				// 		}]
+				// 	}
+				// },
+				// "h5": {
+				// 	"titleNView": {
+				// 		"buttons": [{
+				// 				"type": "share"
+				// 			},
+				// 			{
+				// 				"type": "favorite"
+				// 			}
+				// 		]
+				// 	}
+				// }
 			}
 		},
         {
@@ -91,6 +91,15 @@
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/contact/contact",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "联系我们",
                 "enablePullDownRefresh": false
             }
             

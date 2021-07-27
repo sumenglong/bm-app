@@ -106,6 +106,12 @@ export default {
                 mask: true
             })
         }
+		// cityClick(item) {
+		// 	uni.navigateTo({
+		// 		url:"../index/index",
+				
+		// 	})
+		// }
     }
 }
 </script>
