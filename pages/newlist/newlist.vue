@@ -7,7 +7,7 @@
 					<view class="media-image-left">
 						<text class="media-title2">{{item.title}}</text>
 						<view class="image-section-left">
-							<image class="image-list2" :src="item.author_avatar"></image>
+							<image class="image-list2" :src="item.author_avatar" ></image>
 						</view>
 					</view>
 					<view class="media-foot">

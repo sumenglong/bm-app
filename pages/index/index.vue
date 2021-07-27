@@ -126,8 +126,8 @@
 				db.collection('item')
 				  .field('_id,item_name,item_tiele,item_img,item_weight,item_content,visits,create_date')
 				  .orderBy('visits desc')
-				   .limit(6)
-				   .where("_id !=null")
+				  .limit(6)
+				  .where("_id !=null")
 				  .get()
 				  .then(res => {
 				  const list=res.result.data

@@ -2,7 +2,9 @@
 	<view class="content">
 		<view class="title">{{title}}</view>
 		<view class="art-content">
-			<image :src="images"></image>
+			<view  style="text-align: center;">
+				<image :src="images"></image>
+			</view>
 			<rich-text class="richText" :nodes="strings"></rich-text>
 		</view>
 	</view>
