@@ -245,28 +245,30 @@ var render = function() {
               attrs: { url: "../city/city", _i: 2 }
             },
             [
-              _vm._v("上海"),
+              _c("v-uni-text", { attrs: { _i: 3 } }, [
+                _vm._v(_vm._$g(3, "t0-0"))
+              ]),
               _c("v-uni-image", {
-                staticClass: _vm._$g(3, "sc"),
-                attrs: { src: _vm._$g(3, "a-src"), mode: "", _i: 3 }
+                staticClass: _vm._$g(4, "sc"),
+                attrs: { src: _vm._$g(4, "a-src"), mode: "", _i: 4 }
               })
             ],
             1
           ),
           _c(
             "v-uni-view",
-            { staticClass: _vm._$g(4, "sc"), attrs: { _i: 4 } },
+            { staticClass: _vm._$g(5, "sc"), attrs: { _i: 5 } },
             [
               _c("v-uni-image", {
-                staticClass: _vm._$g(5, "sc"),
-                attrs: { src: _vm._$g(5, "a-src"), mode: "", _i: 5 }
+                staticClass: _vm._$g(6, "sc"),
+                attrs: { src: _vm._$g(6, "a-src"), mode: "", _i: 6 }
               }),
               _c("v-uni-input", {
-                staticClass: _vm._$g(6, "sc"),
+                staticClass: _vm._$g(7, "sc"),
                 attrs: {
                   "confirm-type": "search",
                   placeholder: "请输入...",
-                  _i: 6
+                  _i: 7
                 }
               })
             ],
@@ -274,11 +276,16 @@ var render = function() {
           ),
           _c(
             "v-uni-view",
-            { staticClass: _vm._$g(7, "sc"), attrs: { _i: 7 } },
+            { staticClass: _vm._$g(8, "sc"), attrs: { _i: 8 } },
             [
               _c("v-uni-image", {
-                staticClass: _vm._$g(8, "sc"),
-                attrs: { src: _vm._$g(8, "a-src"), mode: "", _i: 8 }
+                staticClass: _vm._$g(9, "sc"),
+                attrs: { src: _vm._$g(9, "a-src"), mode: "", _i: 9 },
+                on: {
+                  click: function($event) {
+                    return _vm.$handleViewEvent($event)
+                  }
+                }
               })
             ],
             1
@@ -289,7 +296,7 @@ var render = function() {
       _c(
         "v-uni-swiper",
         {
-          staticClass: _vm._$g(9, "sc"),
+          staticClass: _vm._$g(10, "sc"),
           attrs: {
             "indicator-dots": true,
             "indicator-color": "rgba(225, 225, 225, 225)",
@@ -298,84 +305,127 @@ var render = function() {
             interval: 5000,
             duration: 500,
             circular: true,
-            _i: 9
+            _i: 10
           }
         },
+        _vm._l(_vm._$g(11, "f"), function(itemt, index, $20, $30) {
+          return _c(
+            "v-uni-swiper-item",
+            { key: itemt, attrs: { _i: "11-" + $30 } },
+            [
+              _c(
+                "v-uni-view",
+                {
+                  staticClass: _vm._$g("12-" + $30, "sc"),
+                  attrs: { _i: "12-" + $30 }
+                },
+                [
+                  _c("v-uni-image", {
+                    staticClass: _vm._$g("13-" + $30, "sc"),
+                    attrs: {
+                      src: _vm._$g("13-" + $30, "a-src"),
+                      _i: "13-" + $30
+                    }
+                  }),
+                  _c(
+                    "v-uni-text",
+                    {
+                      staticClass: _vm._$g("14-" + $30, "sc"),
+                      attrs: { _i: "14-" + $30 }
+                    },
+                    [_vm._v(_vm._$g("14-" + $30, "t0-0"))]
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        }),
+        1
+      ),
+      _c(
+        "v-uni-view",
+        { staticClass: _vm._$g(15, "sc"), attrs: { _i: 15 } },
         [
           _c(
-            "v-uni-swiper-item",
-            { attrs: { _i: 10 } },
-            [
-              _c(
-                "v-uni-view",
-                { staticClass: _vm._$g(11, "sc"), attrs: { _i: 11 } },
-                [
-                  _c("v-uni-image", {
-                    staticClass: _vm._$g(12, "sc"),
-                    attrs: {
-                      src:
-                        "http://test1.broadmesse.net:40005/BM-1/2020Web/news_photo/7a144302-47b3-41cf-9a5d-32e367de0eaf.jpg",
-                      _i: 12
-                    }
-                  }),
-                  _c(
-                    "v-uni-text",
-                    { staticClass: _vm._$g(13, "sc"), attrs: { _i: 13 } },
-                    [_vm._v("四川联通华为全球大数据中心")]
-                  )
-                ],
-                1
-              )
-            ],
-            1
+            "v-uni-view",
+            { staticClass: _vm._$g(16, "sc"), attrs: { _i: 16 } },
+            [_vm._v("热门展馆")]
           ),
           _c(
-            "v-uni-swiper-item",
-            { attrs: { _i: 14 } },
+            "v-uni-view",
+            { attrs: { _i: 17 } },
             [
               _c(
-                "v-uni-view",
-                { staticClass: _vm._$g(15, "sc"), attrs: { _i: 15 } },
+                "v-uni-scroll-view",
+                {
+                  staticClass: _vm._$g(18, "sc"),
+                  attrs: { "scroll-x": "true", _i: 18 }
+                },
                 [
-                  _c("v-uni-image", {
-                    staticClass: _vm._$g(16, "sc"),
-                    attrs: {
-                      src:
-                        "http://test1.broadmesse.net:40005/BM-1/2020Web/news_photo/7a144302-47b3-41cf-9a5d-32e367de0eaf.jpg",
-                      _i: 16
-                    }
-                  }),
                   _c(
-                    "v-uni-text",
-                    { staticClass: _vm._$g(17, "sc"), attrs: { _i: 17 } },
-                    [_vm._v("四川联通华为全球大数据中心")]
-                  )
-                ],
-                1
-              )
-            ],
-            1
-          ),
-          _c(
-            "v-uni-swiper-item",
-            { attrs: { _i: 18 } },
-            [
-              _c(
-                "v-uni-view",
-                { staticClass: _vm._$g(19, "sc"), attrs: { _i: 19 } },
-                [
-                  _c("v-uni-image", {
-                    staticClass: _vm._$g(20, "sc"),
-                    attrs: {
-                      src:
-                        "http://test1.broadmesse.net:40005/BM-1/2020Web/news_photo/7a144302-47b3-41cf-9a5d-32e367de0eaf.jpg",
-                      _i: 20
-                    }
-                  }),
+                    "v-uni-view",
+                    { staticClass: _vm._$g(19, "sc"), attrs: { _i: 19 } },
+                    [
+                      _c("v-uni-image", {
+                        staticClass: _vm._$g(20, "sc"),
+                        attrs: {
+                          src:
+                            "http://test1.broadmesse.net:40005/BM-1/2020Web/news_photo/8eacecc5-d066-43e1-b5e6-7566c9287712.jpg",
+                          mode: "aspectFill",
+                          _i: 20
+                        }
+                      }),
+                      _c(
+                        "v-uni-view",
+                        { staticClass: _vm._$g(21, "sc"), attrs: { _i: 21 } },
+                        [_vm._v("恒生电子企业智慧展示馆")]
+                      )
+                    ],
+                    1
+                  ),
                   _c(
-                    "v-uni-text",
-                    { staticClass: _vm._$g(21, "sc"), attrs: { _i: 21 } },
-                    [_vm._v("四川联通华为全球大数据中心")]
+                    "v-uni-view",
+                    { staticClass: _vm._$g(22, "sc"), attrs: { _i: 22 } },
+                    [
+                      _c("v-uni-image", {
+                        staticClass: _vm._$g(23, "sc"),
+                        attrs: {
+                          src:
+                            "http://test1.broadmesse.net:40005/BM-1/2020Web/news_photo/8eacecc5-d066-43e1-b5e6-7566c9287712.jpg",
+                          mode: "aspectFill",
+                          _i: 23
+                        }
+                      }),
+                      _c(
+                        "v-uni-view",
+                        { staticClass: _vm._$g(24, "sc"), attrs: { _i: 24 } },
+                        [_vm._v("恒生电子企业智慧展示馆")]
+                      )
+                    ],
+                    1
+                  ),
+                  _c(
+                    "v-uni-view",
+                    { staticClass: _vm._$g(25, "sc"), attrs: { _i: 25 } },
+                    [
+                      _c("v-uni-image", {
+                        staticClass: _vm._$g(26, "sc"),
+                        attrs: {
+                          src:
+                            "http://test1.broadmesse.net:40005/BM-1/2020Web/news_photo/8eacecc5-d066-43e1-b5e6-7566c9287712.jpg",
+                          mode: "aspectFill",
+                          _i: 26
+                        }
+                      }),
+                      _c(
+                        "v-uni-view",
+                        { staticClass: _vm._$g(27, "sc"), attrs: { _i: 27 } },
+                        [_vm._v("恒生电子企业智慧展示馆")]
+                      )
+                    ],
+                    1
                   )
                 ],
                 1
@@ -388,66 +438,24 @@ var render = function() {
       ),
       _c(
         "v-uni-view",
-        { staticClass: _vm._$g(22, "sc"), attrs: { _i: 22 } },
+        { staticClass: _vm._$g(28, "sc"), attrs: { _i: 28 } },
         [
           _c(
             "v-uni-view",
-            { staticClass: _vm._$g(23, "sc"), attrs: { _i: 23 } },
-            [_vm._v("热门展馆")]
+            { staticClass: _vm._$g(29, "sc"), attrs: { _i: 29 } },
+            [_vm._v("主题专区")]
           ),
           _c(
             "v-uni-view",
-            { attrs: { _i: 24 } },
+            { attrs: { _i: 30 } },
             [
               _c(
                 "v-uni-scroll-view",
                 {
-                  staticClass: _vm._$g(25, "sc"),
-                  attrs: { "scroll-x": "true", _i: 25 }
+                  staticClass: _vm._$g(31, "sc"),
+                  attrs: { "scroll-x": "true", _i: 31 }
                 },
                 [
-                  _c(
-                    "v-uni-view",
-                    { staticClass: _vm._$g(26, "sc"), attrs: { _i: 26 } },
-                    [
-                      _c("v-uni-image", {
-                        staticClass: _vm._$g(27, "sc"),
-                        attrs: {
-                          src:
-                            "http://test1.broadmesse.net:40005/BM-1/2020Web/news_photo/8eacecc5-d066-43e1-b5e6-7566c9287712.jpg",
-                          mode: "aspectFill",
-                          _i: 27
-                        }
-                      }),
-                      _c(
-                        "v-uni-view",
-                        { staticClass: _vm._$g(28, "sc"), attrs: { _i: 28 } },
-                        [_vm._v("恒生电子企业智慧展示馆")]
-                      )
-                    ],
-                    1
-                  ),
-                  _c(
-                    "v-uni-view",
-                    { staticClass: _vm._$g(29, "sc"), attrs: { _i: 29 } },
-                    [
-                      _c("v-uni-image", {
-                        staticClass: _vm._$g(30, "sc"),
-                        attrs: {
-                          src:
-                            "http://test1.broadmesse.net:40005/BM-1/2020Web/news_photo/8eacecc5-d066-43e1-b5e6-7566c9287712.jpg",
-                          mode: "aspectFill",
-                          _i: 30
-                        }
-                      }),
-                      _c(
-                        "v-uni-view",
-                        { staticClass: _vm._$g(31, "sc"), attrs: { _i: 31 } },
-                        [_vm._v("恒生电子企业智慧展示馆")]
-                      )
-                    ],
-                    1
-                  ),
                   _c(
                     "v-uni-view",
                     { staticClass: _vm._$g(32, "sc"), attrs: { _i: 32 } },
@@ -456,7 +464,7 @@ var render = function() {
                         staticClass: _vm._$g(33, "sc"),
                         attrs: {
                           src:
-                            "http://test1.broadmesse.net:40005/BM-1/2020Web/news_photo/8eacecc5-d066-43e1-b5e6-7566c9287712.jpg",
+                            "http://test1.broadmesse.net:40005/BM-1/2020Web/news_photo/7f8880f2-348f-4df6-a623-93c7aa878457.jpg",
                           mode: "aspectFill",
                           _i: 33
                         }
@@ -464,56 +472,6 @@ var render = function() {
                       _c(
                         "v-uni-view",
                         { staticClass: _vm._$g(34, "sc"), attrs: { _i: 34 } },
-                        [_vm._v("恒生电子企业智慧展示馆")]
-                      )
-                    ],
-                    1
-                  )
-                ],
-                1
-              )
-            ],
-            1
-          )
-        ],
-        1
-      ),
-      _c(
-        "v-uni-view",
-        { staticClass: _vm._$g(35, "sc"), attrs: { _i: 35 } },
-        [
-          _c(
-            "v-uni-view",
-            { staticClass: _vm._$g(36, "sc"), attrs: { _i: 36 } },
-            [_vm._v("主题专区")]
-          ),
-          _c(
-            "v-uni-view",
-            { attrs: { _i: 37 } },
-            [
-              _c(
-                "v-uni-scroll-view",
-                {
-                  staticClass: _vm._$g(38, "sc"),
-                  attrs: { "scroll-x": "true", _i: 38 }
-                },
-                [
-                  _c(
-                    "v-uni-view",
-                    { staticClass: _vm._$g(39, "sc"), attrs: { _i: 39 } },
-                    [
-                      _c("v-uni-image", {
-                        staticClass: _vm._$g(40, "sc"),
-                        attrs: {
-                          src:
-                            "http://test1.broadmesse.net:40005/BM-1/2020Web/news_photo/7f8880f2-348f-4df6-a623-93c7aa878457.jpg",
-                          mode: "aspectFill",
-                          _i: 40
-                        }
-                      }),
-                      _c(
-                        "v-uni-view",
-                        { staticClass: _vm._$g(41, "sc"), attrs: { _i: 41 } },
                         [_vm._v("文博主题")]
                       )
                     ],
@@ -521,20 +479,20 @@ var render = function() {
                   ),
                   _c(
                     "v-uni-view",
-                    { staticClass: _vm._$g(42, "sc"), attrs: { _i: 42 } },
+                    { staticClass: _vm._$g(35, "sc"), attrs: { _i: 35 } },
                     [
                       _c("v-uni-image", {
-                        staticClass: _vm._$g(43, "sc"),
+                        staticClass: _vm._$g(36, "sc"),
                         attrs: {
                           src:
                             "http://test1.broadmesse.net:40005/BM-1/2020Web/news_photo/5f2a8a2a-dc18-4c39-ad15-11894b2035be.jpg",
                           mode: "aspectFill",
-                          _i: 43
+                          _i: 36
                         }
                       }),
                       _c(
                         "v-uni-view",
-                        { staticClass: _vm._$g(44, "sc"), attrs: { _i: 44 } },
+                        { staticClass: _vm._$g(37, "sc"), attrs: { _i: 37 } },
                         [_vm._v("科技主题")]
                       )
                     ],
@@ -542,20 +500,20 @@ var render = function() {
                   ),
                   _c(
                     "v-uni-view",
-                    { staticClass: _vm._$g(45, "sc"), attrs: { _i: 45 } },
+                    { staticClass: _vm._$g(38, "sc"), attrs: { _i: 38 } },
                     [
                       _c("v-uni-image", {
-                        staticClass: _vm._$g(46, "sc"),
+                        staticClass: _vm._$g(39, "sc"),
                         attrs: {
                           src:
                             "http://test1.broadmesse.net:40005/BM-1/2020Web/news_photo/d1651f96-675f-4f57-b9c1-8250ca49c3e0.jpg",
                           mode: "aspectFill",
-                          _i: 46
+                          _i: 39
                         }
                       }),
                       _c(
                         "v-uni-view",
-                        { staticClass: _vm._$g(47, "sc"), attrs: { _i: 47 } },
+                        { staticClass: _vm._$g(40, "sc"), attrs: { _i: 40 } },
                         [_vm._v("城市主题")]
                       )
                     ],
@@ -572,22 +530,22 @@ var render = function() {
       ),
       _c(
         "v-uni-view",
-        { staticClass: _vm._$g(48, "sc"), attrs: { _i: 48 } },
+        { staticClass: _vm._$g(41, "sc"), attrs: { _i: 41 } },
         [
           _c(
             "v-uni-view",
-            { staticClass: _vm._$g(49, "sc"), attrs: { _i: 49 } },
+            { staticClass: _vm._$g(42, "sc"), attrs: { _i: 42 } },
             [_vm._v("新闻资讯")]
           ),
           _c(
             "v-uni-view",
-            { staticClass: _vm._$g(50, "sc"), attrs: { _i: 50 } },
+            { staticClass: _vm._$g(43, "sc"), attrs: { _i: 43 } },
             [
               _c(
                 "v-uni-view",
                 {
-                  staticClass: _vm._$g(51, "sc"),
-                  attrs: { _i: 51 },
+                  staticClass: _vm._$g(44, "sc"),
+                  attrs: { _i: 44 },
                   on: {
                     click: function($event) {
                       return _vm.$handleViewEvent($event)
@@ -596,26 +554,26 @@ var render = function() {
                 },
                 [
                   _c("v-uni-image", {
-                    staticClass: _vm._$g(52, "sc"),
+                    staticClass: _vm._$g(45, "sc"),
                     attrs: {
                       src:
                         "http://test1.broadmesse.net:40005/BM-1/2020Web/news_photo/f527ca9e-89ef-4a2c-ad72-3de0c45d0a82.jpg",
                       mode: "aspectFill",
-                      _i: 52
+                      _i: 45
                     }
                   }),
                   _c(
                     "v-uni-view",
-                    { staticClass: _vm._$g(53, "sc"), attrs: { _i: 53 } },
+                    { staticClass: _vm._$g(46, "sc"), attrs: { _i: 46 } },
                     [
                       _c(
                         "v-uni-view",
-                        { staticClass: _vm._$g(54, "sc"), attrs: { _i: 54 } },
+                        { staticClass: _vm._$g(47, "sc"), attrs: { _i: 47 } },
                         [_vm._v("宽创国际作品 | 延安大学校史馆")]
                       ),
                       _c(
                         "v-uni-view",
-                        { staticClass: _vm._$g(55, "sc"), attrs: { _i: 55 } },
+                        { staticClass: _vm._$g(48, "sc"), attrs: { _i: 48 } },
                         [
                           _vm._v(
                             "延安大学校史馆布展上经线以时间脉络梳理延大历史沿革，纬线以人文情怀凝炼延大精神内涵。"
@@ -630,29 +588,29 @@ var render = function() {
               ),
               _c(
                 "v-uni-view",
-                { staticClass: _vm._$g(56, "sc"), attrs: { _i: 56 } },
+                { staticClass: _vm._$g(49, "sc"), attrs: { _i: 49 } },
                 [
                   _c("v-uni-image", {
-                    staticClass: _vm._$g(57, "sc"),
+                    staticClass: _vm._$g(50, "sc"),
                     attrs: {
                       src:
                         "http://test1.broadmesse.net:40005/BM-1/2020Web/news_photo/d6656879-17a9-46fa-af55-779f4698d218.jpg",
                       mode: "aspectFill",
-                      _i: 57
+                      _i: 50
                     }
                   }),
                   _c(
                     "v-uni-view",
-                    { staticClass: _vm._$g(58, "sc"), attrs: { _i: 58 } },
+                    { staticClass: _vm._$g(51, "sc"), attrs: { _i: 51 } },
                     [
                       _c(
                         "v-uni-view",
-                        { staticClass: _vm._$g(59, "sc"), attrs: { _i: 59 } },
+                        { staticClass: _vm._$g(52, "sc"), attrs: { _i: 52 } },
                         [_vm._v("宽创国际作品 | 亿晶光电展厅")]
                       ),
                       _c(
                         "v-uni-view",
-                        { staticClass: _vm._$g(60, "sc"), attrs: { _i: 60 } },
+                        { staticClass: _vm._$g(53, "sc"), attrs: { _i: 53 } },
                         [
                           _vm._v(
                             "宽创国际打造亿晶光电展厅以“向阳而生，与光同行”为主题，全面展示完整光伏产业链、国内率先实现垂直一体化生产的面貌。"
@@ -667,29 +625,29 @@ var render = function() {
               ),
               _c(
                 "v-uni-view",
-                { staticClass: _vm._$g(61, "sc"), attrs: { _i: 61 } },
+                { staticClass: _vm._$g(54, "sc"), attrs: { _i: 54 } },
                 [
                   _c("v-uni-image", {
-                    staticClass: _vm._$g(62, "sc"),
+                    staticClass: _vm._$g(55, "sc"),
                     attrs: {
                       src:
                         "http://test1.broadmesse.net:40005/BM-1/2020Web/news_photo/d6656879-17a9-46fa-af55-779f4698d218.jpg",
                       mode: "aspectFill",
-                      _i: 62
+                      _i: 55
                     }
                   }),
                   _c(
                     "v-uni-view",
-                    { staticClass: _vm._$g(63, "sc"), attrs: { _i: 63 } },
+                    { staticClass: _vm._$g(56, "sc"), attrs: { _i: 56 } },
                     [
                       _c(
                         "v-uni-view",
-                        { staticClass: _vm._$g(64, "sc"), attrs: { _i: 64 } },
+                        { staticClass: _vm._$g(57, "sc"), attrs: { _i: 57 } },
                         [_vm._v("宽创国际作品 | 亿晶光电展厅")]
                       ),
                       _c(
                         "v-uni-view",
-                        { staticClass: _vm._$g(65, "sc"), attrs: { _i: 65 } },
+                        { staticClass: _vm._$g(58, "sc"), attrs: { _i: 58 } },
                         [
                           _vm._v(
                             "宽创国际打造亿晶光电展厅以“向阳而生，与光同行”为主题，全面展示完整光伏产业链、国内率先实现垂直一体化生产的面貌。"
@@ -704,29 +662,29 @@ var render = function() {
               ),
               _c(
                 "v-uni-view",
-                { staticClass: _vm._$g(66, "sc"), attrs: { _i: 66 } },
+                { staticClass: _vm._$g(59, "sc"), attrs: { _i: 59 } },
                 [
                   _c("v-uni-image", {
-                    staticClass: _vm._$g(67, "sc"),
+                    staticClass: _vm._$g(60, "sc"),
                     attrs: {
                       src:
                         "http://test1.broadmesse.net:40005/BM-1/2020Web/news_photo/d6656879-17a9-46fa-af55-779f4698d218.jpg",
                       mode: "aspectFill",
-                      _i: 67
+                      _i: 60
                     }
                   }),
                   _c(
                     "v-uni-view",
-                    { staticClass: _vm._$g(68, "sc"), attrs: { _i: 68 } },
+                    { staticClass: _vm._$g(61, "sc"), attrs: { _i: 61 } },
                     [
                       _c(
                         "v-uni-view",
-                        { staticClass: _vm._$g(69, "sc"), attrs: { _i: 69 } },
+                        { staticClass: _vm._$g(62, "sc"), attrs: { _i: 62 } },
                         [_vm._v("宽创国际作品 | 亿晶光电展厅")]
                       ),
                       _c(
                         "v-uni-view",
-                        { staticClass: _vm._$g(70, "sc"), attrs: { _i: 70 } },
+                        { staticClass: _vm._$g(63, "sc"), attrs: { _i: 63 } },
                         [
                           _vm._v(
                             "宽创国际打造亿晶光电展厅以“向阳而生，与光同行”为主题，全面展示完整光伏产业链、国内率先实现垂直一体化生产的面貌。"
@@ -741,29 +699,29 @@ var render = function() {
               ),
               _c(
                 "v-uni-view",
-                { staticClass: _vm._$g(71, "sc"), attrs: { _i: 71 } },
+                { staticClass: _vm._$g(64, "sc"), attrs: { _i: 64 } },
                 [
                   _c("v-uni-image", {
-                    staticClass: _vm._$g(72, "sc"),
+                    staticClass: _vm._$g(65, "sc"),
                     attrs: {
                       src:
                         "http://test1.broadmesse.net:40005/BM-1/2020Web/news_photo/d6656879-17a9-46fa-af55-779f4698d218.jpg",
                       mode: "aspectFill",
-                      _i: 72
+                      _i: 65
                     }
                   }),
                   _c(
                     "v-uni-view",
-                    { staticClass: _vm._$g(73, "sc"), attrs: { _i: 73 } },
+                    { staticClass: _vm._$g(66, "sc"), attrs: { _i: 66 } },
                     [
                       _c(
                         "v-uni-view",
-                        { staticClass: _vm._$g(74, "sc"), attrs: { _i: 74 } },
+                        { staticClass: _vm._$g(67, "sc"), attrs: { _i: 67 } },
                         [_vm._v("宽创国际作品 | 亿晶光电展厅")]
                       ),
                       _c(
                         "v-uni-view",
-                        { staticClass: _vm._$g(75, "sc"), attrs: { _i: 75 } },
+                        { staticClass: _vm._$g(68, "sc"), attrs: { _i: 68 } },
                         [
                           _vm._v(
                             "宽创国际打造亿晶光电展厅以“向阳而生，与光同行”为主题，全面展示完整光伏产业链、国内率先实现垂直一体化生产的面貌。"
@@ -778,29 +736,29 @@ var render = function() {
               ),
               _c(
                 "v-uni-view",
-                { staticClass: _vm._$g(76, "sc"), attrs: { _i: 76 } },
+                { staticClass: _vm._$g(69, "sc"), attrs: { _i: 69 } },
                 [
                   _c("v-uni-image", {
-                    staticClass: _vm._$g(77, "sc"),
+                    staticClass: _vm._$g(70, "sc"),
                     attrs: {
                       src:
                         "http://test1.broadmesse.net:40005/BM-1/2020Web/news_photo/d6656879-17a9-46fa-af55-779f4698d218.jpg",
                       mode: "aspectFill",
-                      _i: 77
+                      _i: 70
                     }
                   }),
                   _c(
                     "v-uni-view",
-                    { staticClass: _vm._$g(78, "sc"), attrs: { _i: 78 } },
+                    { staticClass: _vm._$g(71, "sc"), attrs: { _i: 71 } },
                     [
                       _c(
                         "v-uni-view",
-                        { staticClass: _vm._$g(79, "sc"), attrs: { _i: 79 } },
+                        { staticClass: _vm._$g(72, "sc"), attrs: { _i: 72 } },
                         [_vm._v("宽创国际作品 | 亿晶光电展厅")]
                       ),
                       _c(
                         "v-uni-view",
-                        { staticClass: _vm._$g(80, "sc"), attrs: { _i: 80 } },
+                        { staticClass: _vm._$g(73, "sc"), attrs: { _i: 73 } },
                         [
                           _vm._v(
                             "宽创国际打造亿晶光电展厅以“向阳而生，与光同行”为主题，全面展示完整光伏产业链、国内率先实现垂直一体化生产的面貌。"

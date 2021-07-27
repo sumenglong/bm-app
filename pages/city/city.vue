@@ -14,7 +14,7 @@
 
 <script>
 import citys from '../../components/city-select/city.js'
-console.log(citys.length)
+//console.log(citys.length)
 import citySelect from '@/components/city-select/city-select.vue'
 export default {
 	components: {citySelect},
