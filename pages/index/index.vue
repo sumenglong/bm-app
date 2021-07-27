@@ -2,7 +2,7 @@
 	<view class="content">
 		<view class="head-box">
 			<navigator url="../city/city" class="address"><text>{{city}}</text><image src="../../static/xiajiantou.png" mode="" class="xia"></image></navigator>
-			<view class="head-input" @click="gotoSearch">
+			<view class="head-input" @click="gotoSearch()">
 				<image src="../../static/search.png" mode="" class="search-icon"></image>
 				<input class="uni-input search-input" confirm-type="search" placeholder="请输入..." />
 			</view>
@@ -12,7 +12,7 @@
 		</view>
 		
 		<swiper class="swiper" :indicator-dots="true" indicator-color="rgba(225, 225, 225, 225)" indicator-active-color="#1f89e2" :autoplay="true" :interval="5000" :duration="500" :circular="true">
-			<swiper-item v-for="(itemt,index) in listItem" :key="index">
+			<swiper-item @tap="gotoitem" v-for="(itemt,index) in listItem" :key="index" :data-itemid="itemt._id">
 				<view class="swiper-item">
 					<image class="swiper-item-img" :src="itemt.item_img"></image>
 					<text class="swiper-title">{{itemt.item_name}}</text>
@@ -24,19 +24,10 @@
 			<view class="home-title">热门展馆</view>
 			<view class="">
 				<scroll-view class="scroll-view" scroll-x="true">
-					<view class="scroll-view-item">
-						<image class="scroll-img" src="http://test1.broadmesse.net:40005/BM-1/2020Web/news_photo/8eacecc5-d066-43e1-b5e6-7566c9287712.jpg" mode="aspectFill"></image>
-						<view class="scroll-title">恒生电子企业智慧展示馆</view>
+					<view class="scroll-view-item"  @tap="gotoitem" v-for="(itemt,index) in listItemr" :key="index" :data-itemid="itemt._id">
+						<image class="scroll-img" :src="itemt.item_img" mode="aspectFill"></image>
+						<view class="scroll-title">{{itemt.item_name}}</view>
 					</view>
-					<view class="scroll-view-item">
-						<image class="scroll-img" src="http://test1.broadmesse.net:40005/BM-1/2020Web/news_photo/8eacecc5-d066-43e1-b5e6-7566c9287712.jpg" mode="aspectFill"></image>
-						<view class="scroll-title">恒生电子企业智慧展示馆</view>
-					</view>
-					<view class="scroll-view-item">
-						<image class="scroll-img" src="http://test1.broadmesse.net:40005/BM-1/2020Web/news_photo/8eacecc5-d066-43e1-b5e6-7566c9287712.jpg" mode="aspectFill"></image>
-						<view class="scroll-title">恒生电子企业智慧展示馆</view>
-					</view>
-					
 				</scroll-view>
 			</view>
 		</view>
@@ -45,18 +36,10 @@
 			<view class="home-title home-title-t">主题专区</view>
 			<view class="">
 				<scroll-view class="scroll-view" scroll-x="true">
-					<view class="scroll-view-item">
-						<image class="scroll-img" src="http://test1.broadmesse.net:40005/BM-1/2020Web/news_photo/7f8880f2-348f-4df6-a623-93c7aa878457.jpg" mode="aspectFill"></image>
-						<view class="scroll-title">文博主题</view>
+					<view class="scroll-view-item"  v-for="(itemtype,index) in listtype" :key="index" @click="gotoTheme()">
+						<image class="scroll-img" mode="aspectFill" :src="itemtype.type_img" ></image>
+						<view class="scroll-title">{{itemtype.type_name}}</view>
 					</view>
-					<view class="scroll-view-item">
-						<image class="scroll-img" src="http://test1.broadmesse.net:40005/BM-1/2020Web/news_photo/5f2a8a2a-dc18-4c39-ad15-11894b2035be.jpg" mode="aspectFill"></image>
-						<view class="scroll-title">科技主题</view>
-					</view>
-					<view class="scroll-view-item">
-						<image class="scroll-img" src="http://test1.broadmesse.net:40005/BM-1/2020Web/news_photo/d1651f96-675f-4f57-b9c1-8250ca49c3e0.jpg" mode="aspectFill"></image>
-						<view class="scroll-title">城市主题</view>
-					</view>		
 				</scroll-view>
 			</view>
 		</view>
@@ -64,50 +47,19 @@
 		<view class="hotBox newsBox">
 			<view class="home-title home-title-n">新闻资讯</view>
 			<view class="newsListAll">
-				<view class="newsList" @click="gotoNews">
-					<image src="http://test1.broadmesse.net:40005/BM-1/2020Web/news_photo/f527ca9e-89ef-4a2c-ad72-3de0c45d0a82.jpg" mode="aspectFill" class="newsImg"></image>
+				<view class="newsList" @tap="gotoNews"  v-for="(news,index) in listnews" :key="index" :data-newsid="news._id">
+					<image :src="news.news_img" mode="aspectFill" class="newsImg"></image>
 					<view class="newsTxt">
-						<view class="bigTitle">宽创国际作品 | 延安大学校史馆</view>
-						<view class="smallTitle">延安大学校史馆布展上经线以时间脉络梳理延大历史沿革，纬线以人文情怀凝炼延大精神内涵。</view>
+						<view class="bigTitle">{{news.news_name}}</view>
+						<view class="smallTitle">{{news.news_title}}</view>
 					</view>
 				</view>
-				<view class="newsList">
-					<image src="http://test1.broadmesse.net:40005/BM-1/2020Web/news_photo/d6656879-17a9-46fa-af55-779f4698d218.jpg" mode="aspectFill" class="newsImg"></image>
-					<view class="newsTxt">
-						<view class="bigTitle">宽创国际作品 | 亿晶光电展厅</view>
-						<view class="smallTitle">宽创国际打造亿晶光电展厅以“向阳而生，与光同行”为主题，全面展示完整光伏产业链、国内率先实现垂直一体化生产的面貌。</view>
-					</view>
-				</view>
-				<view class="newsList">
-					<image src="http://test1.broadmesse.net:40005/BM-1/2020Web/news_photo/d6656879-17a9-46fa-af55-779f4698d218.jpg" mode="aspectFill" class="newsImg"></image>
-					<view class="newsTxt">
-						<view class="bigTitle">宽创国际作品 | 亿晶光电展厅</view>
-						<view class="smallTitle">宽创国际打造亿晶光电展厅以“向阳而生，与光同行”为主题，全面展示完整光伏产业链、国内率先实现垂直一体化生产的面貌。</view>
-					</view>
-				</view>
-				<view class="newsList">
-					<image src="http://test1.broadmesse.net:40005/BM-1/2020Web/news_photo/d6656879-17a9-46fa-af55-779f4698d218.jpg" mode="aspectFill" class="newsImg"></image>
-					<view class="newsTxt">
-						<view class="bigTitle">宽创国际作品 | 亿晶光电展厅</view>
-						<view class="smallTitle">宽创国际打造亿晶光电展厅以“向阳而生，与光同行”为主题，全面展示完整光伏产业链、国内率先实现垂直一体化生产的面貌。</view>
-					</view>
-				</view>
-				<view class="newsList">
-					<image src="http://test1.broadmesse.net:40005/BM-1/2020Web/news_photo/d6656879-17a9-46fa-af55-779f4698d218.jpg" mode="aspectFill" class="newsImg"></image>
-					<view class="newsTxt">
-						<view class="bigTitle">宽创国际作品 | 亿晶光电展厅</view>
-						<view class="smallTitle">宽创国际打造亿晶光电展厅以“向阳而生，与光同行”为主题，全面展示完整光伏产业链、国内率先实现垂直一体化生产的面貌。</view>
-					</view>
-				</view>
-				<view class="newsList">
-					<image src="http://test1.broadmesse.net:40005/BM-1/2020Web/news_photo/d6656879-17a9-46fa-af55-779f4698d218.jpg" mode="aspectFill" class="newsImg"></image>
-					<view class="newsTxt">
-						<view class="bigTitle">宽创国际作品 | 亿晶光电展厅</view>
-						<view class="smallTitle">宽创国际打造亿晶光电展厅以“向阳而生，与光同行”为主题，全面展示完整光伏产业链、国内率先实现垂直一体化生产的面貌。</view>
-					</view>
-				</view>
-				
+			<view style="size: b5; color: #007AFF;float: right;" @click="gonews">
+				<text>查看更多>></text>
 			</view>
+				<view style="height: 30px;"></view>
+			</view>
+			
 		</view>
 		
 	</view>
@@ -119,6 +71,9 @@
 		data() {
 			return {
 				listItem:[],
+				listItemr:[],
+				listtype:[],
+				listnews:[],
 				city:"上海"
 			}
 		},
@@ -140,8 +95,10 @@
 			csh(){
 				db.collection('item')
 				  .field('_id,item_name,item_tiele,item_img,item_weight,item_content,visits,create_date')
-				  .orderBy('create_date')
+				  .orderBy('item_weight desc')
+				   .limit(6)
 				  .get()
+				 
 				  .then(res => {
 				  const list=res.result.data
 				  for(var i=0;i<list.length;i++){
@@ -157,7 +114,6 @@
 				  	list[i].create_date=year+'-'+trMon+'-'+trDay
 				  }
 				this.listItem=res.result.data
-				  
 				  }).catch(err => {
 					    uni.showModal({
 					    	content: err.message || '请求服务失败',
@@ -165,30 +121,119 @@
 					    })
 					})
 				
+				
+				db.collection('item')
+				  .field('_id,item_name,item_tiele,item_img,item_weight,item_content,visits,create_date')
+				  .orderBy('visits desc')
+				  .limit(6)
+				  .where("_id !=null")
+				  .get()
+				  .then(res => {
+				  const list=res.result.data
+				  for(var i=0;i<list.length;i++){
+				  	var date = new Date(list[i].create_date);
+				  	var year = date.getFullYear();
+				  	var mon  = date.getMonth()+1;
+				  	var day  = date.getDate();
+				  	var hours = date.getHours();
+				  	var minu = date.getMinutes();
+				  	var sec = date.getSeconds();
+				  	var trMon = mon<10 ? '0'+mon : mon
+				  	var trDay = day<10 ? '0'+day : day
+				  	list[i].create_date=year+'-'+trMon+'-'+trDay
+					
+				  }
+				this.listItemr=res.result.data
+				  
+				  }).catch(err => {
+					    uni.showModal({
+					    	content: err.message || '请求服务失败',
+					    	showCancel: false
+					    })
+					})
+					
+			db.collection('items_type')
+			  .field('_id,type_name,type_img')
+			   .limit(6)
+			  .get()
+			  .then(res => {
+			this.listtype=res.result.data
+			  }).catch(err => {
+				    uni.showModal({
+				    	content: err.message || '请求服务失败',
+				    	showCancel: false
+				    })
+				})	
+					
+			db.collection('news')
+			  .field('_id,news_name,news_title,news_img')
+			   .limit(6)
+			  .get()
+			  .then(res => {
+			this.listnews=res.result.data
+			  }).catch(err => {
+				    uni.showModal({
+				    	content: err.message || '请求服务失败',
+				    	showCancel: false
+				    })
+				})	
+			
 			},
 			sm(){
 				uni.scanCode({
 				    success: function (res) {
-						uni.showModal({
-							content: res.result,
-							showCancel: false
-						})
+						// uni.showModal({
+						// 	content: res.result,
+						// 	showCancel: false
+						// });
 				        // console.log('条码类型：' + res.scanType);
 				        // console.log('条码内容：' + res.result);
+						uni.navigateTo({
+							// url: '../new/new-info',
+							url: '../item/item?itemid='+res.result,
+							success: res => {},
+							fail: () => {},
+							complete: () => {}
+						});
 				    }
 				});
 			},
-
-			gotoNews(){
+			gotoitem(e){
+				var itemid = e.currentTarget.dataset.itemid
 				uni.navigateTo({
-					url:"../new/new"
-
+					// url: '../new/new-info',
+					url: '../item/item?itemid='+itemid,
+					success: res => {},
+					fail: () => {},
+					complete: () => {}
+				});
+				
+			},
+			gotoNews(e){
+				var newsid = e.currentTarget.dataset.newsid
+				uni.navigateTo({
+					// url: '../new/new-info',
+					url: '../info/info?newsid='+newsid,
+					success: res => {},
+					fail: () => {},
+					complete: () => {}
+				});
+				
+			},
+			gonews(){
+				uni.navigateTo({
+					url:"../new/new",
+				
 				})
 			},
 			gotoSearch(){
-				uni.navigateTo({	
-					url:"../search/search"
-		
+				uni.navigateTo({
+					url:"../search/search",
+				})
+			},
+			gotoTheme(){
+				uni.navigateTo({
+					url:"../theme/theme",
 				})
 			}
 		}

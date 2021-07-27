@@ -87,7 +87,7 @@
 	page {
 	    display: flex;
 	    min-height: 100%;
-	    background-color: #EFEFEF;
+	    background-color: #f2f2f2;
 	}
 	
 	template {

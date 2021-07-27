@@ -60,6 +60,10 @@
             "path" : "pages/info/info",
             "style" : {}
         },
+		{
+		    "path" : "pages/item/item",
+		    "style" : {}
+		},
         {
             "path" : "pages/newlist/newlist",
             "style" : {
@@ -127,6 +131,15 @@
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "反馈中心",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/theme/theme",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "文博主题",
                 "enablePullDownRefresh": false
             }
             
