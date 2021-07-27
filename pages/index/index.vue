@@ -142,6 +142,7 @@
 				  	var trMon = mon<10 ? '0'+mon : mon
 				  	var trDay = day<10 ? '0'+day : day
 				  	list[i].create_date=year+'-'+trMon+'-'+trDay
+					
 				  }
 				this.listItemr=res.result.data
 				  
