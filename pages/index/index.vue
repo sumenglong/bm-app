@@ -12,7 +12,7 @@
 		</view>
 		
 		<swiper class="swiper" :indicator-dots="true" indicator-color="rgba(225, 225, 225, 225)" indicator-active-color="#1f89e2" :autoplay="true" :interval="5000" :duration="500" :circular="true">
-			<swiper-item v-for="(itemt,index) in listItem" :key="index">
+			<swiper-item @tap="gotoitem" v-for="(itemt,index) in listItem" :key="index" :data-itemid="itemt._id">
 				<view class="swiper-item">
 					<image class="swiper-item-img" :src="itemt.item_img"></image>
 					<text class="swiper-title">{{itemt.item_name}}</text>
@@ -24,7 +24,7 @@
 			<view class="home-title">热门展馆</view>
 			<view class="">
 				<scroll-view class="scroll-view" scroll-x="true">
-					<view class="scroll-view-item" v-for="(itemt,index) in listItemr" :key="index">
+					<view class="scroll-view-item"  @tap="gotoitem" v-for="(itemt,index) in listItemr" :key="index" :data-itemid="itemt._id">
 						<image class="scroll-img" :src="itemt.item_img" mode="aspectFill"></image>
 						<view class="scroll-title">{{itemt.item_name}}</view>
 					</view>
@@ -190,13 +190,24 @@
 				        // console.log('条码内容：' + res.result);
 						uni.navigateTo({
 							// url: '../new/new-info',
-							url: '../info/info?newsid='+res.result,
+							url: '../item/item?itemid='+res.result,
 							success: res => {},
 							fail: () => {},
 							complete: () => {}
 						});
 				    }
 				});
+			},
+			gotoitem(e){
+				var itemid = e.currentTarget.dataset.itemid
+				uni.navigateTo({
+					// url: '../new/new-info',
+					url: '../item/item?itemid='+itemid,
+					success: res => {},
+					fail: () => {},
+					complete: () => {}
+				});
+				
 			},
 			gotoNews(e){
 				var newsid = e.currentTarget.dataset.newsid

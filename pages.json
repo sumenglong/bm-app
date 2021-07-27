@@ -60,6 +60,10 @@
             "path" : "pages/info/info",
             "style" : {}
         },
+		{
+		    "path" : "pages/item/item",
+		    "style" : {}
+		},
         {
             "path" : "pages/newlist/newlist",
             "style" : {
