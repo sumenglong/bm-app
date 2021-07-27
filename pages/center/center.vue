@@ -3,6 +3,7 @@
 		<view class="logo" @click="goLogin" :hover-class="!login ? 'logo-hover' : ''">
 			<image class="logo-img" :src="login ? uerInfo.avatarUrl :avatarUrl"></image>
 			<view class="logo-title">
+				<!-- <text class="nameTxt">宽创国际</text> -->
 				<text class="uer-name">Hi，{{login ? uerInfo.name : '您未登录'}}</text>
 				<text class="go-login navigat-arrow" v-if="!login">&#xe65e;</text>
 			</view>
@@ -22,7 +23,7 @@
 		<view class="center-list">
 			<view class="center-list-item border-bottom">
 				<text class="list-icon">&#xe60b;</text>
-				<text class="list-text">我的发布</text>
+				<text class="list-text" @click="gotoMyvideo()">我的发布</text>
 				<text class="navigat-arrow">&#xe65e;</text>
 			</view>
 			<!-- <view class="center-list-item">
@@ -32,7 +33,7 @@
 			</view> -->
 		</view>
 		<view class="center-list">
-			<view class="center-list-item border-bottom" @click="goAbout">
+			<view class="center-list-item border-bottom" @click="gotoFeedback()">
 				<text class="list-icon">&#xe603;</text>
 				<text class="list-text">反馈中心</text>
 				<text class="navigat-arrow">&#xe65e;</text>
@@ -64,18 +65,16 @@
 					})
 				}
 			},
-			goAbout() {
-				// #ifdef APP-PLUS
+			gotoMyvideo(){
+				uni.navigateTo({	
+					url:"../myvideo/myvideo"
+				})
+			},
+			gotoFeedback(){
 				uni.navigateTo({
-					url:'/platforms/app-plus/about/about'
-				});
-				// #endif
-				// #ifdef H5
-				uni.navigateTo({
-					url:'/platforms/h5/about/about'
-				});
-				// #endif
-			}
+					url:"../feedback/feedback"
+				})
+			},
 		}
 	}
 </script>
@@ -98,5 +97,9 @@
 	.navigator-hover {
 		background-color: #fff !important;
 		opacity: 1 !important;
+	}
+	.nameTxt {
+		font-size: 16px;
+		color: #FFFFFF;
 	}
 </style>
