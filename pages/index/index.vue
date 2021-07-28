@@ -114,7 +114,6 @@
 				  	list[i].create_date=year+'-'+trMon+'-'+trDay
 				  }
 				this.listItem=res.result.data
-				  
 				  }).catch(err => {
 					    uni.showModal({
 					    	content: err.message || '请求服务失败',
