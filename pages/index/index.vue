@@ -2,7 +2,7 @@
 	<view class="content">
 		<view class="head-box">
 			<navigator url="../city/city" class="address"><text>{{city}}</text><image src="../../static/xiajiantou.png" mode="" class="xia"></image></navigator>
-			<view class="head-input">
+			<view class="head-input" @click="gotoSearch()">
 				<image src="../../static/search.png" mode="" class="search-icon"></image>
 				<input class="uni-input search-input" confirm-type="search" placeholder="请输入..." />
 			</view>
@@ -36,7 +36,7 @@
 			<view class="home-title home-title-t">主题专区</view>
 			<view class="">
 				<scroll-view class="scroll-view" scroll-x="true">
-					<view class="scroll-view-item"  v-for="(itemtype,index) in listtype" :key="index">
+					<view class="scroll-view-item"  v-for="(itemtype,index) in listtype" :key="index" @click="gotoTheme()">
 						<image class="scroll-img" mode="aspectFill" :src="itemtype.type_img" ></image>
 						<view class="scroll-title">{{itemtype.type_name}}</view>
 					</view>
@@ -225,8 +225,17 @@
 					url:"../new/new",
 				
 				})
+			},
+			gotoSearch(){
+				uni.navigateTo({
+					url:"../search/search",
+				})
+			},
+			gotoTheme(){
+				uni.navigateTo({
+					url:"../theme/theme",
+				})
 			}
-
 		}
 	}
 </script>
