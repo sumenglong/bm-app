@@ -9,17 +9,41 @@
 </template>
 
 <script>
+	const db = uniCloud.database()
 	export default {
 		data() {
 			return {
+				url:"",
+				name:"",
 				
 			}
 		},
-		onLoad() {
-			
+		onLoad:function(e){
+				this.ll(e.videoid)
 		},
 		methods: {
-
+			getvi(videoid){
+				db.collection('video')
+				  .field('_id,video_name,video_url,video_content,video_weight,video_visits,create_date')
+				   .where("_id=='"+videoid+"'")
+				  .get()
+				  .then(res => {
+					  const list=res.result.data
+					  //console.log(list)
+					  this.title= res.result.data[0].news_name
+					  this.strings =res.result.data[0].news_content
+					  this.images =res.result.data[0].news_img
+					  uni.setNavigationBarTitle({
+					  			title: this.title
+					   		});
+					 
+				  }).catch(err => {
+					    uni.showModal({
+					    	content: err.message || '请求服务失败',
+					    	showCancel: false
+					    })
+					})	
+			}
 			
 		}
 	}

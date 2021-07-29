@@ -4,7 +4,7 @@
 		<view class="tabBox">
 			<view class="videoBox" v-show="flag">
 				
-				<view class="hot-item" @click="gotoDetail"  v-for="(video,index) in listvideo" :key="index">
+				<view class="hot-item" @tap="gotoDetail"  v-for="(video,index) in listvideo" :key="index"  :data-videoid="video._id">
 					<image class="hot-img" :src="video.video_img" mode="aspectFill"></image>
 					<view class="hot-title">{{video.video_name}}</view>
 				</view>
@@ -49,28 +49,7 @@
 					'直播'
 				],
 				title: 'Hello',
-				videoList:[
-				{"video_id":"111111",
-				"nickname":"su",
-				"video_describe":"sss",
-				"cover_url":"https://vkceyugu.cdn.bspapp.com/VKCEYUGU-1b34ca82-6f86-4e9e-b658-91a226f442bf/1c88e86f-b2d7-4659-853f-a8536699c133.png",
-				"video_url":"https://vkceyugu.cdn.bspapp.com/VKCEYUGU-1b34ca82-6f86-4e9e-b658-91a226f442bf/b0957eee-2aa5-4806-9e50-ed5eab68bbb7.mp4",
-				"dianzan":"11",
-				"pinglun":"ss",
-				"is_dianzan":true,
-				"zhuanfa":"ss",
-				"flag":false,
-				},{"video_id":"111111",
-				"nickname":"ss",
-				"video_describe":"ss",
-				"cover_url":"https://vkceyugu.cdn.bspapp.com/VKCEYUGU-1b34ca82-6f86-4e9e-b658-91a226f442bf/1c88e86f-b2d7-4659-853f-a8536699c133.png",
-				"video_url":"https://vkceyugu.cdn.bspapp.com/VKCEYUGU-1b34ca82-6f86-4e9e-b658-91a226f442bf/d8fb4ffa-94f2-4c7b-a1cb-4c95488b0f6f.mp4",
-				"dianzan":"11",
-				"pinglun":"ss",
-				"is_dianzan":true,
-				"zhuanfa":"ss",
-				"flag":false,
-				}]
+				videoList:[]
 			}
 		},
 		onLoad() {
@@ -91,11 +70,15 @@
 					    })
 					})	
 			},
-			gotoDetail(){
-				uni.navigateTo({
-					url:"/pages/detail/detail"
-		
-				})
+			gotoDetail(e){
+			var videoid = e.currentTarget.dataset.videoid
+			uni.navigateTo({
+				// url: '../new/new-info',
+				url: '../detail/detail?videoid='+videoid,
+				success: res => {},
+				fail: () => {},
+				complete: () => {}
+			});
 			},
 			changeTab(index) {
 				// console.log('当前选中的项：' + index)
@@ -103,16 +86,47 @@
 					 this.flag = false;
 					 this.flag1=true;
 					  this.flag2=false;
+					  this.getxvideo()
 				} else if(index==0) {
 					this.flag = true;
 					 this.flag2=false;
 					  this.flag1=false;
+					   this.videoList=[]
 				}
 				else if(index==2) {
 					this.flag1 = false;
 					 this.flag2=true;
 					  this.flag=false;
+					  this.videoList=[]
 				}
+			},
+			getxvideo(){
+				db.collection('small_video')
+				  .field('_id,nickname,video_describe,video_url,cover_url,dianzan,pinglun,zhuanfa,flag,is_dianzan,create_date')
+				   .orderBy('create_date desc')
+				  .get()
+				  .then(res => {
+					console.log(res.result.data);
+					for (let item of res.result.data) {
+						this.videoList.push({
+							video_id: item._id,
+							nickname: item.nickname,
+							video_describe: item.video_describe,
+							cover_url: item.cover_url,
+							video_url: item.video_url,
+							dianzan: item.dianzan,
+							pinglun: item.pinglun,
+							zhuanfa: item.zhuanfa,
+							is_dianzan: item.is_dianzan,
+							flag: false
+						});
+					}
+				  }).catch(err => {
+					    uni.showModal({
+					    	content: err.message || '请求服务失败',
+					    	showCancel: false
+					    })
+					})	
 			}
 		}
 	}
