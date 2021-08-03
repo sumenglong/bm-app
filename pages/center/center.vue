@@ -21,11 +21,11 @@
 			</view>
 		</view> -->
 		<view class="center-list">
-			<view class="center-list-item border-bottom">
-				<text class="list-icon">&#xe60b;</text>
-				<text class="list-text" @click="gotoMyvideo()">我的发布</text>
+			<!-- <view class="center-list-item border-bottom">
+				<text class="list-icon">&#xe603;</text>
+				<text class="list-text" @click="gotoMyvideo()">补充信息</text>
 				<text class="navigat-arrow">&#xe65e;</text>
-			</view>
+			</view> -->
 			<!-- <view class="center-list-item">
 				<text class="list-icon">&#xe61a;</text>
 				<text class="list-text">上传图片</text>
@@ -34,7 +34,7 @@
 		</view>
 		<view class="center-list">
 			<view class="center-list-item border-bottom" @click="gotoFeedback()">
-				<text class="list-icon">&#xe603;</text>
+				<text class="list-icon">&#xe60b;</text>
 				<text class="list-text">反馈中心</text>
 				<text class="navigat-arrow">&#xe65e;</text>
 			</view>
@@ -80,11 +80,14 @@
 						})	
 				},
 			goLogin() {
-				if(!this.login){
-					uni.navigateTo({
-						url:"../login/login"
-					})
-				}
+				// if(!this.login){
+				// 	uni.navigateTo({
+				// 		url:"../login/login"
+				// 	})
+				// }
+				uni.navigateTo({
+					url:"../login/login"
+				})
 			},
 			gotoMyvideo(){
 				uni.navigateTo({	
@@ -114,15 +117,9 @@
 	    display: flex;
 	}
 	page {
-	    display: flex;
-	    min-height: 100%;
 	    background-color: #f2f2f2;
 	}
 	
-	template {
-	    display: flex;
-	    flex: 1;
-	}
 	.navigator-hover {
 		background-color: #fff !important;
 		opacity: 1 !important;

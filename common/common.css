@@ -226,7 +226,7 @@ view.tag,.tag {
 
 .center {
 	flex-direction: column;
-    min-height: 100vh;
+    /* min-height: 100vh; */
 }
 
 .logo {
@@ -240,7 +240,7 @@ view.tag,.tag {
 }
 
 .logo-hover {
-	opacity: 0.8;
+	/* opacity: 0.8; */
 }
 
 .logo-img {
