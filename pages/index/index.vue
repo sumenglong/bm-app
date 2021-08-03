@@ -1,14 +1,14 @@
 <template>
 	<view class="content">
 		<view class="head-box">
-			<navigator url="../city/city" class="address"><text>{{city}}</text><image src="../../static/xiajiantou.png" mode="" class="xia"></image></navigator>
+			<!-- <navigator url="../city/city" class="address"><text>{{city}}</text><image src="../../static/xiajiantou.png" mode="" class="xia"></image></navigator> -->
 			<view class="head-input" @click="gotoSearch()">
 				<image src="../../static/search.png" mode="" class="search-icon"></image>
 				<input class="uni-input search-input" confirm-type="search" placeholder="请输入..." />
 			</view>
-			<view class="head-sao">
+			<!-- <view class="head-sao">
 				<image src="../../static/sao.png" mode="" class="sao" @click="sm()"></image>
-			</view>	
+			</view> -->	
 		</view>
 		
 		<swiper class="swiper" :indicator-dots="true" indicator-color="rgba(225, 225, 225, 225)" indicator-active-color="#1f89e2" :autoplay="true" :interval="5000" :duration="500" :circular="true">
@@ -293,6 +293,7 @@
 	}
 	.head-input {
 		display: flex;
+		width: 96%;
 		height: 36px;
 		line-height: 36px;
 		background-color: #FFFFFF;
