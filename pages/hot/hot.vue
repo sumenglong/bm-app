@@ -46,7 +46,7 @@
 				tabs: [
 					'视频',
 					'小视频',
-					'直播'
+					'专家说'
 				],
 				title: 'Hello',
 				videoList:[]

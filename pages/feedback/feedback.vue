@@ -2,9 +2,9 @@
 	<view class="content">
 		<view class="feedBox">
 			<text class="feedTitle">问题和意见</text>
-			<textarea class="feedTxt" value="" placeholder="请输入..." />
+			<textarea class="feedTxt" v-model="fdcomtent" placeholder="请输入..." />
 		</view>
-		<button type="default">提交</button>
+		<button type="default" @click="addfeedback()" >提交</button>
 	</view>
 </template>
 
@@ -12,11 +12,36 @@
 	export default {
 		data() {
 			return {
-				
+				uid:"",
+				fdcomtent:""
 			}
 		},
+		onLoad:function(e){
+			this.uid=e.uid
+		},
 		methods: {
-			
+			addfeedback(){
+				if(this.uid!=null&&this.uid.length>0 ){
+					console.log(this.fdcomtent)
+					uniCloud.callFunction({
+						name:"bm-app",
+						data:{
+							uid:this.uid,
+							content:this.fdcomtent
+						},
+						success(res) {
+							console.log(1)
+						},fail() {
+						
+						}
+					})
+				}else{
+					uni.showModal({
+						content: "请先登录" || '请求服务失败',
+						showCancel: false
+					})
+				}
+			}
 		}
 	}
 </script>

@@ -1,25 +1,60 @@
 <template>
 	<view class="content contact">
 		<view class="contentImg">
-			<image src="../../static/contact.png" mode="widthFix"></image>
+			<image :src="img" mode="widthFix"></image>
+			<view class="iconewm">
+				<image :src="iocn" ></image>
+			</view>
+			<view class="comname">
+				<text>{{cname}}</text>
+			</view>
 		</view>
+		
+		
 		<view class="contactTxt">
-			宽创国际，成立于2005年，总部上海浦东张江，员工数百人，自持一座文化科技产业园和一个文化科技馆，拥有十二大文化创意设计院和科技研究院。秉持“用科技传播中国文化与品牌”的企业梦想，积极响应国家“科技强国”与“文化兴国”战略、“一带一路”倡议，立足文化、科技、创意三大主线，跨界融合创新，自主研发数百项科技产品，专注文博文旅会展市场，成功布展数百个各类博物馆，科技馆，非遗馆，党史党建馆，方志馆，城市规划馆和几十个行业的企业展厅展馆，服务客户遍布“一带一路”沿线全部国家、形成了“科技研发+创意设计+全球运营”的战略布局与发展体系。
-		</view>
+			{{content}}
+			</view>
 	</view>
 </template>
 
 <script>
+	const db = uniCloud.database()
 	export default {
 		data() {
 			return {
-				
+				cname:"",
+				content:"",
+				iocn:"",
+				img:""
 			}
 		},
+		onLoad:function(){
+				this.getcompany()
+		},
 		methods: {
+			getcompany(){
+				db.collection('company')
+					  .field('_id,company_name,company_iocn,company_content,company_img')
+					   .where("company_id=='0002'")
+					  .get()
+					  .then(res => {
+						  const list=res.result.data
+						  //console.log(list)
+						  this.iocn= res.result.data[0].company_iocn
+						  this.cname =res.result.data[0].company_name
+						  this.content =res.result.data[0].company_content
+						  this.img=res.result.data[0].company_img
+					  }).catch(err => {
+						    uni.showModal({
+						    	content: err.message || '请求服务失败',
+						    	showCancel: false
+						    })
+						})	
+				}
+			}
 			
 		}
-	}
+	
 </script>
 
 <style>
@@ -36,5 +71,18 @@
 .contactTxt {
 	font-size: 14px;
 	padding-bottom: 30px;
+}
+.iconewm{
+	position: absolute;
+	
+}
+.iconewm image{
+	width: 200px;
+	height: 200px;
+	text-align: center;
+}
+.comname{
+	position: absolute;
+	top: 270px;
 }
 </style>
