@@ -9,13 +9,14 @@
 </template>
 
 <script>
+
 	const db = uniCloud.database()
 	export default {
 		data() {
 			return {
 				url:"",
 				name:"",
-				
+				content:""
 			}
 		},
 		onLoad:function(e){
@@ -30,9 +31,9 @@
 				  .then(res => {
 					  const list=res.result.data
 					  //console.log(list)
-					  this.title= res.result.data[0].news_name
-					  this.strings =res.result.data[0].news_content
-					  this.images =res.result.data[0].news_img
+					  this.url= res.result.data[0].video_url
+					  this.name =res.result.data[0].video_name
+					  this.content =res.result.data[0].news_img
 					  uni.setNavigationBarTitle({
 					  			title: this.title
 					   		});

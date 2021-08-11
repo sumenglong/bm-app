@@ -49,6 +49,7 @@
 </template>
 
 <script>
+	const db = uniCloud.database()
 	export default {
 		data() {
 			return {
@@ -57,7 +58,27 @@
 				uerInfo:{}
 			}
 		},
+		onLoad:function(e){
+				this.getuser()
+		},
 		methods: {
+			getuser(){
+				db.collection('users')
+					  .field('_id,username,nickname,avatar')
+					   .where("_id=='610762c554df7700016b6c19'")
+					  .get()
+					  .then(res => {
+						  const list=res.result.data
+						  //console.log(list)
+						  this.login= true
+						  this.uerInfo={"id":res.result.data[0]._id,"name":res.result.data[0].username,"avatarUrl":res.result.data[0].avatar}
+					  }).catch(err => {
+						    uni.showModal({
+						    	content: err.message || '请求服务失败',
+						    	showCancel: false
+						    })
+						})	
+				},
 			goLogin() {
 				// if(!this.login){
 				// 	uni.navigateTo({
@@ -74,9 +95,17 @@
 				})
 			},
 			gotoFeedback(){
-				uni.navigateTo({
-					url:"../feedback/feedback"
-				})
+				if(this.uerInfo.id!=null&&this.uerInfo.id.length>0 ){
+					uni.navigateTo({
+						url:"../feedback/feedback?uid="+this.uerInfo.id
+					})
+				}else{
+					uni.showModal({
+						content: "请先登录" || '请求服务失败',
+						showCancel: false
+					})
+				}
+				
 			},
 		}
 	}
