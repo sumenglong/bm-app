@@ -2,52 +2,68 @@
 	<view class="content">
 		<view class="bg">
 			<view class="head-input">
-				<image src="../../static/search.png" mode="" class="search-icon"></image>
-				<input class="uni-input search-input" confirm-type="search" placeholder="请输入..." />
+				<image src="../../static/search.png" mode="" class="search-icon" @click="gotosearch()"></image>
+				<input class="uni-input search-input" confirm-type="search" placeholder="请输入..." v-model="svalue" />
 			</view>
 		</view>
 		<view class="searchBox">
-			<view class="searchList">
-				<image src="http://test1.broadmesse.net:40005/BM-1/2020Web/news_photo/d6656879-17a9-46fa-af55-779f4698d218.jpg" mode="aspectFill" class="searchImg"></image>
+			<view class="searchList" v-for="(item,index) in listitem" :key="index">
+				<image :src="item.item_img" mode="aspectFill" class="searchImg"></image>
 				<view class="searchTxt">
-					<view class="bigTitle">宽创国际作品 | 亿晶光电展厅</view>
-					<view class="smallTitle">宽创国际打造亿晶光电展厅以“向阳而生，与光同行”为主题，全面展示完整光伏产业链、国内率先实现垂直一体化生产的面貌。</view>
+					<view class="bigTitle">{{item.item_name}}</view>
+					<view class="smallTitle">{{item.item_title}}</view>
 				</view>
 			</view>
-			<view class="searchList">
-				<image src="http://test1.broadmesse.net:40005/BM-1/2020Web/news_photo/d6656879-17a9-46fa-af55-779f4698d218.jpg" mode="aspectFill" class="searchImg"></image>
-				<view class="searchTxt">
-					<view class="bigTitle">宽创国际作品 | 亿晶光电展厅</view>
-					<view class="smallTitle">宽创国际打造亿晶光电展厅以“向阳而生，与光同行”为主题，全面展示完整光伏产业链、国内率先实现垂直一体化生产的面貌。</view>
-				</view>
-			</view>
-			<view class="searchList">
-				<image src="http://test1.broadmesse.net:40005/BM-1/2020Web/news_photo/d6656879-17a9-46fa-af55-779f4698d218.jpg" mode="aspectFill" class="searchImg"></image>
-				<view class="searchTxt">
-					<view class="bigTitle">宽创国际作品 | 亿晶光电展厅</view>
-					<view class="smallTitle">宽创国际打造亿晶光电展厅以“向阳而生，与光同行”为主题，全面展示完整光伏产业链、国内率先实现垂直一体化生产的面貌。</view>
-				</view>
-			</view>
-			<view class="searchList">
-				<image src="http://test1.broadmesse.net:40005/BM-1/2020Web/news_photo/d6656879-17a9-46fa-af55-779f4698d218.jpg" mode="aspectFill" class="searchImg"></image>
-				<view class="searchTxt">
-					<view class="bigTitle">宽创国际作品 | 亿晶光电展厅</view>
-					<view class="smallTitle">宽创国际打造亿晶光电展厅以“向阳而生，与光同行”为主题，全面展示完整光伏产业链、国内率先实现垂直一体化生产的面貌。</view>
-				</view>
-			</view>
+		
 		</view>
 	</view>
 </template>
 
 <script>
+	const db = uniCloud.database()
 	export default {
 		data() {
 			return {
-				
+				svalue:"",
+				listitem:[]
 			}
 		},
+		onLoad:function(e){
+			this.svalue=e.searchvalue
+			this.gotosearch()
+		},
 		methods: {
-			
+			gotosearch(){
+				if(this.svalue.length>0){
+				db.collection('item')
+				  .field('_id,item_name,item_title,item_img')
+				  .where("/"+this.svalue+"/.test(item_name)")
+				  .get()
+				  .then(res => {
+					this.listitem=res.result.data
+				  }).catch(err => {
+					uni.showModal({
+						content: err.message || '请求服务失败',
+						showCancel: false
+					})
+				})
+				}
+				else{
+					db.collection('item')
+					  .field('_id,item_name,item_title,item_img')
+					  .limit(6)
+					  .get()
+					  .then(res => {
+						this.listitem=res.result.data
+					  }).catch(err => {
+						uni.showModal({
+							content: err.message || '请求服务失败',
+							showCancel: false
+						})
+					})
+				}
+			}
+			//~ "some words"
 		}
 	}
 </script>

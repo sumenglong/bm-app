@@ -1,7 +1,20 @@
 <script>
+	import {mapMutations} from 'vuex'
 	export default {
+		methods:{
+			...mapMutations(['login'])
+		},
 		onLaunch: function() {
 			console.log('App Launch')
+			let userInfo =uni.getStorageInfoSync("userInfo")|| '';
+			if(userInfo.id){
+				uni.getStorage({
+					key:'userInfo',
+					success:(res)=>{
+						this.login(res.data)
+					}
+				})
+			}
 		},
 		onShow: function() {
 			console.log('App Show')

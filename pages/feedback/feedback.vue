@@ -30,7 +30,10 @@
 							content:this.fdcomtent
 						},
 						success(res) {
-							console.log(1)
+							uni.showModal({
+								content: "反馈成功" || '请求服务失败',
+								showCancel: false
+							})
 						},fail() {
 						
 						}

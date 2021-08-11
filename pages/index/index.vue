@@ -2,9 +2,9 @@
 	<view class="content">
 		<view class="head-box">
 			<!-- <navigator url="../city/city" class="address"><text>{{city}}</text><image src="../../static/xiajiantou.png" mode="" class="xia"></image></navigator> -->
-			<view class="head-input" @click="gotoSearch()">
-				<image src="../../static/search.png" mode="" class="search-icon"></image>
-				<input class="uni-input search-input" confirm-type="search" placeholder="请输入..." />
+			<view class="head-input" >
+				<image src="../../static/search.png" mode="" class="search-icon" @click="gotoSearch()"></image>
+				<input class="uni-input search-input" confirm-type="search" placeholder="请输入..." v-model="search" />
 			</view>
 			<!-- <view class="head-sao">
 				<image src="../../static/sao.png" mode="" class="sao" @click="sm()"></image>
@@ -70,6 +70,7 @@
 	export default {
 		data() {
 			return {
+				search:"",
 				listItem:[],
 				listItemr:[],
 				listtype:[],
@@ -78,17 +79,12 @@
 			}
 		},
 		onLoad: function() {
-			uni.getLocation({
-				type: 'gcj02',
-				geocode:true,
-			    success: function (res) {
-					this.city= res.address.city;
-			        uni.showModal({
-			        	content: res.address.city,
-			        	showCancel: false
-			        })
-			    }
-			});	
+			// uni.getStorage({
+			//     key: 'storage_key',
+			//     success: function (res) {
+			//         console.log(res.data);
+			//     }
+			// });
 			this.csh();
 		},
 		methods: {
@@ -228,7 +224,7 @@
 			},
 			gotoSearch(){
 				uni.navigateTo({
-					url:"../search/search",
+					url:"../search/search?searchvalue="+this.search,
 				})
 			},
 			gotoTheme(){
