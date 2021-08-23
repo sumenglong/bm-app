@@ -20,7 +20,28 @@
 			}
 		},
 		onLoad:function(e){
-				this.ll(e.videoid)
+			var that=this
+			uni.getStorage({
+			    key: 'userid',
+			    success: function (res) {
+					if(res.data){
+						that.ll(e.videoid)
+					}else{
+						uni.reLaunch({
+						    url: '../login/login'
+						});
+					}
+			    },
+				complete :function (res) {
+				if(res.errMsg=="getStorage:fail"){
+					uni.reLaunch({
+					    url: '../login/login'
+					});
+				}
+					
+				}
+			});
+				
 		},
 		methods: {
 			getvi(videoid){

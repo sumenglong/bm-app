@@ -75,26 +75,71 @@
 				listItemr:[],
 				listtype:[],
 				listnews:[],
-				city:"上海"
+				dsid:"",
+				huoqucs:0
 			}
 		},
 		onLoad: function() {
-			// uni.getStorage({
-			//     key: 'storage_key',
-			//     success: function (res) {
-			//         console.log(res.data);
+			//uni.clearStorage();
+			
+			// var list1=12
+			// uni.setStorage({
+			//     key: 'user_id',
+			//     data: list1,
+			//     success: function () {
+			//         console.log('success');
 			//     }
 			// });
-			this.csh();
+			//this.csh()
+			this.pduser()
 		},
 		methods: {
+			pduser(){
+				var that=this
+				uni.getStorage({
+				    key: 'userid',
+				    success: function (res) {
+						//console.log(JSON.parse(res.data));
+						if(res.data){
+							//console.log(res.data);
+							// uni.showToast({
+							// 	icon: 'none',
+							// 	title: res.data
+							// })
+							that.csh()
+						}else{
+							// uni.showToast({
+							// 	icon: 'none',
+							// 	title: res.data
+							// })
+							uni.reLaunch({
+							    url: '../login/login'
+							});
+						}
+				    },
+					complete :function (res) {
+					// uni.showToast({
+					// 	icon: 'none',
+					// 	title: res.errMsg
+					// })
+					
+					if(res.errMsg.search("getStorage:fail")!=-1){
+						//console.log(res.errMsg.search("getStorage:fail"))
+						uni.reLaunch({
+						    url: '../login/login'
+						});
+					}
+						
+					}
+				});
+				
+			},
 			csh(){
 				db.collection('item')
 				  .field('_id,item_name,item_tiele,item_img,item_weight,item_content,visits,create_date')
 				  .orderBy('item_weight desc')
 				   .limit(6)
 				  .get()
-				 
 				  .then(res => {
 				  const list=res.result.data
 				  for(var i=0;i<list.length;i++){

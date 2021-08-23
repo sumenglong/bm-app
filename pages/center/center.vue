@@ -59,19 +59,41 @@
 			}
 		},
 		onLoad:function(e){
-				this.getuser()
+				 var that=this
+				uni.getStorage({
+				    key: 'userid',
+				    success: function (res) {
+						if(res.data){
+							 console.log(res.data);
+							that.getuser(res.data)
+						}else{
+							
+							uni.reLaunch({
+							    url: '../login/login'
+							});
+						}
+				    },
+					complete :function (res) {
+					if(res.errMsg=="getStorage:fail"){
+						uni.reLaunch({
+						    url: '../login/login'
+						});
+					}
+						
+					}
+				});
 		},
 		methods: {
-			getuser(){
+			getuser(id){
 				db.collection('users')
 					  .field('_id,username,nickname,avatar')
-					   .where("_id=='610762c554df7700016b6c19'")
+					   .where("_id=='"+id+"'")
 					  .get()
 					  .then(res => {
 						  const list=res.result.data
 						  //console.log(list)
 						  this.login= true
-						  this.uerInfo={"id":res.result.data[0]._id,"name":res.result.data[0].username,"avatarUrl":res.result.data[0].avatar}
+						  this.uerInfo={"id":res.result.data[0]._id,"name":res.result.data[0].nickname,"avatarUrl":res.result.data[0].avatar}
 					  }).catch(err => {
 						    uni.showModal({
 						    	content: err.message || '请求服务失败',

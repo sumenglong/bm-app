@@ -17,7 +17,27 @@
 			}
 		},
 		onLoad:function(e){
-			this.uid=e.uid
+			var that=this
+			uni.getStorage({
+			    key: 'userid',
+			    success: function (res) {
+					if(res.data){
+						that.uid=e.uid
+					}else{
+						uni.reLaunch({
+						    url: '../login/login'
+						});
+					}
+			    },
+				complete :function (res) {
+				if(res.errMsg=="getStorage:fail"){
+					uni.reLaunch({
+					    url: '../login/login'
+					});
+				}
+					
+				}
+			});
 		},
 		methods: {
 			addfeedback(){
@@ -27,7 +47,8 @@
 						name:"bm-app",
 						data:{
 							uid:this.uid,
-							content:this.fdcomtent
+							content:this.fdcomtent,
+							tid:1
 						},
 						success(res) {
 							uni.showModal({

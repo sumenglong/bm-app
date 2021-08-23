@@ -29,7 +29,32 @@
 			}
 		},
 		onLoad:function(){
-				this.getcompany()
+			var that=this
+			uni.getStorage({
+			    key: 'userid',
+			    success: function (res) {
+					uni.showToast({
+						icon: res.data,
+						title: '验证码已发送请稍后1'
+					})
+					
+					if(res.data){
+						that.getcompany()
+					}else{
+						uni.reLaunch({
+						    url: '../login/login'
+						});
+					}
+			    },
+				complete :function (res) {
+				if(res.errMsg=="getStorage:fail"){
+					uni.reLaunch({
+					    url: '../login/login'
+					});
+					}
+				}
+			});
+			
 		},
 		methods: {
 			getcompany(){

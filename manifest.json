@@ -1,17 +1,22 @@
 {
-    "name" : "bm_app",
+    "name" : "宽创国际",
     "appid" : "__UNI__76E00E5",
     "description" : "",
     "versionName" : "1.0.0",
     "versionCode" : "100",
     "transformPx" : false,
     "app-plus" : {
+        "compatible" : {
+            "ignoreVersion" : true //true表示忽略版本检查提示框，HBuilderX1.9.0及以上版本支持  
+        },
         /* 5+App特有相关 */
         "splashscreen" : {
             "autoclose" : true,
             "waiting" : true
         },
-        "modules" : {},
+        "modules" : {
+            "VideoPlayer" : {}
+        },
         /* 模块配置 */
         "distribute" : {
             /* 应用发布信息 */
@@ -51,12 +56,21 @@
             "ios" : {},
             /* ios打包配置 */
             "sdkConfigs" : {
-                "ad" : {
-                    "gdt" : {}
-                },
+                "ad" : {},
                 "maps" : {},
                 "oauth" : {},
                 "geolocation" : {}
+            },
+            "icons" : {
+                "android" : {
+                    "hdpi" : "C:/Users/sml/Desktop/gstb/72.png",
+                    "xhdpi" : "C:/Users/sml/Desktop/gstb/96.png",
+                    "xxhdpi" : "C:/Users/sml/Desktop/gstb/144.png",
+                    "xxxhdpi" : "C:/Users/sml/Desktop/gstb/192.png"
+                },
+                "ios" : {
+                    "appstore" : ""
+                }
             }
         },
         "uniStatistics" : {
@@ -77,6 +91,10 @@
         "sdkConfigs" : {
             "maps" : {}
         },
-        "title" : "bm"
+        "title" : "bm",
+        "domain" : "test1.broadmesse.net",
+        "router" : {
+            "base" : "/bm/"
+        }
     }
 }

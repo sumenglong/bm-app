@@ -5,7 +5,7 @@
             "path" : "pages/index/index",
             "style" : {
                 "navigationBarTitleText" : "首页",
-               "enablePullDownRefresh": true
+               "enablePullDownRefresh": false
             }
         },
         {
@@ -19,14 +19,14 @@
             "path" : "pages/new/new",
             "style" : {
                 "navigationBarTitleText" : "新闻",
-                "enablePullDownRefresh" : true
+                "enablePullDownRefresh" : false
             }
         },
 		{
 		    "path" : "pages/hot/hot",
 		    "style" : {
 		        "navigationBarTitleText" : "发现",
-		        "enablePullDownRefresh" : true
+		        "enablePullDownRefresh" : false
 		    }
 		},
 		{
@@ -60,6 +60,7 @@
             "path" : "pages/info/info",
             "style" : {}
         },
+	
 		{
 		    "path" : "pages/item/item",
 		    "style" : {}
@@ -67,7 +68,7 @@
         {
             "path" : "pages/newlist/newlist",
             "style" : {
-                "enablePullDownRefresh" : true
+                "enablePullDownRefresh" : false
             }
         },
         {
@@ -80,14 +81,14 @@
             "path" : "pages/leftlist/leftlist",
             "style" : {
                 "navigationBarTitleText" : "新闻",
-                "enablePullDownRefresh" : true
+                "enablePullDownRefresh" : false
             }
         },
         {
             "path" : "pages/picture/picture",
             "style" : {
 				 "navigationBarTitleText" : "图片",
-				 "enablePullDownRefresh" : true
+				 "enablePullDownRefresh" : false
 			}
         }
         ,{
